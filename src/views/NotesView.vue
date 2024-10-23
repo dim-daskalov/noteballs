@@ -11,9 +11,18 @@
     </template>
   </AddEditNote>
 
-  <div class="is-flex is-flex-wrap-wrap is-justify-content-space-evenly">
+  <div
+    v-if="notesStore.notes.length"
+    class="is-flex is-flex-wrap-wrap is-justify-content-space-evenly"
+  >
     <Note v-for="note in notesStore.notes" :key="note.id" :note="note" />
   </div>
+  <span
+    v-else
+    class="is-flex is-justify-content-center is-size-3 has-text-primary"
+  >
+    No notes available!
+  </span>
 </template>
 
 <script setup lang="ts">
