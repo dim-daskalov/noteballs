@@ -27,6 +27,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import { useNotesStore } from '@/stores/notes'
 import { useWatchCharacters } from '@/use/useWatchCharacters'
 

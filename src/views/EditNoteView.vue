@@ -22,10 +22,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import { useNotesStore } from '@/stores/notes'
+import { useRoute, useRouter } from 'vue-router'
 
 import AddEditNote from '@/components/Notes/AddEditNote.vue'
-import { useRoute, useRouter } from 'vue-router'
 
 const notesStore = useNotesStore()
 const router = useRouter()
@@ -42,6 +43,6 @@ noteContent.value = currentNoteDescription
 const handleSaveNote = () => {
   notesStore.editNote(updatedNoteId, noteContent.value)
 
-  router.push('/')
+  router.push({ name: 'notes' })
 }
 </script>

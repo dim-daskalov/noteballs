@@ -10,7 +10,10 @@
       </div>
     </div>
     <footer class="card-footer">
-      <RouterLink :to="`/edit-note/${props.note.id}`" class="card-footer-item">
+      <RouterLink
+        :to="{ name: 'edit-note', params: { id: props.note.id } }"
+        class="card-footer-item"
+      >
         Edit
       </RouterLink>
       <a
@@ -18,8 +21,9 @@
         role="button"
         @click.prevent="modals.deleteNote = true"
         class="card-footer-item"
-        >Delete</a
       >
+        Delete
+      </a>
     </footer>
     <DeleteNoteModal
       v-model="modals.deleteNote"
@@ -45,6 +49,7 @@
 import { reactive } from 'vue'
 
 import { useNotesStore } from '@/stores/notes'
+
 import DeleteNoteModal from './DeleteNoteModal.vue'
 
 const notesStore = useNotesStore()

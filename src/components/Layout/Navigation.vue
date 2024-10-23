@@ -3,7 +3,10 @@
   <nav class="navbar is-success" role="navigation" aria-label="main navigation">
     <div class="container is-max-desktop px-2">
       <div class="navbar-brand">
-        <RouterLink to="/" class="navbar-item is-size-5 is-family-monospace">
+        <RouterLink
+          :to="{ name: 'notes' }"
+          class="navbar-item is-size-5 is-family-monospace"
+        >
           <img :src="`${logoImg}`" alt="logo" />
           <span class="ml-2">Noteballs</span>
         </RouterLink>
@@ -32,14 +35,15 @@
       >
         <div class="navbar-end">
           <RouterLink
-            to="/"
+            :to="{ name: 'notes' }"
             @click="showMobileNav = false"
             class="navbar-item"
             active-class="is-active"
-            >Notes
+          >
+            Notes
           </RouterLink>
           <RouterLink
-            to="/stats"
+            :to="{ name: 'stats' }"
             @click="showMobileNav = false"
             class="navbar-item"
             active-class="is-active"
@@ -54,7 +58,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import { onClickOutside } from '@vueuse/core'
+
 import logoImg from '../../assets/note-logo.png'
 
 const showMobileNav = ref(false)

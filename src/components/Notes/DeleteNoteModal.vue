@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+
 import { onClickOutside, onKeyStroke } from '@vueuse/core'
 
 const props = defineProps({
